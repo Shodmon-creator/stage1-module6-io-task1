@@ -5,13 +5,12 @@ import java.io.File;
 import java.io.IOException;
 
 
-
 public class FileReader {
 
-    public static Profile getDataFromFile(File file) {
+    public Profile getDataFromFile(File file) {
 
 
-        Profile profile=new Profile();
+        Profile profile = new Profile();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(file));
             String line;
@@ -29,14 +28,12 @@ public class FileReader {
 
 
             }
-            reader.close();
-
-
+//            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return profile;
+        return  profile;
 
     }
 
