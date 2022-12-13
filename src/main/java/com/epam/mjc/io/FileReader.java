@@ -11,8 +11,8 @@ public class FileReader {
 
 
         Profile profile = new Profile();
-        try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
+
             String line;
             String[] parts;
             while ((line = reader.readLine()) != null) {
@@ -25,15 +25,12 @@ public class FileReader {
                     profile.setEmail(parts[1]);
                 if (parts[0].equals("Phone"))
                     profile.setPhone(Long.valueOf(parts[1]));
-
-
             }
-//            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return  profile;
+        return profile;
 
     }
 
